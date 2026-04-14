@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum-Inspired Collagen Lattice Simulation</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\[', right: '\\]', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}]});"></script>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div id="three-canvas"></div>
+    <div class="hero-content">
+      <h1 class="hero-title"><span class="text-gradient">Quantum-Inspired</span><br>Collagen Lattice Simulation</h1>
+      <p class="hero-subtitle">Exploring structural coherence, perturbation propagation, and repair optimization through a quantum-inspired computational framework.</p>
+      <div class="hero-buttons" style="margin-top: 40px; display: flex; gap: 20px; justify-content: center;">
+        <a href="#simulation" class="btn">View Simulation</a>
+        <a href="https://github.com/IanPapamichail" target="_blank" class="btn">GitHub</a>
+        <a href="https://linkedln.com//in/nickolas-adrian-papamichail-076923288" target="_blank" class="btn">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Overview -->
+  <section id="overview">
+    <h2><span class="accent-gradient">01.</span> Project Overview</h2>
+    <div class="overview-grid">
+      <div class="glass-card">
+        <h3>Graph Abstraction</h3>
+        <p class="text-muted">Modeling collagen fibrils as complex network graphs where nodes represent tropocollagen molecules and edges represent intermolecular cross-links.</p>
+      </div>
+      <div class="glass-card">
+        <h3>Perturbation Dynamics</h3>
+        <p class="text-muted">Simulating mechanical and biochemical stressors via localized network perturbations and observing stress propagation paths.</p>
+      </div>
+      <div class="glass-card">
+        <h3>Quantum Optimization</h3>
+        <p class="text-muted">Utilizing QAOA-inspired algorithms to find the most energetically efficient repair pathways within the degraded lattice structure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Simulation -->
+  <section id="simulation">
+    <h2><span class="accent-gradient">02.</span> Live Lattice Simulation</h2>
+    <p class="text-muted">Interact with the lattice below. Click nodes to apply damage. Use the panel to initiate quantum repair.</p>
+    
+    <div class="simulation-container">
+      <div id="d3-canvas"></div>
+      
+      <div class="control-panel glass-card">
+        <div class="control-group">
+          <label class="control-label">Status</label>
+          <div id="sim-status" class="font-mono text-gradient">IDLE</div>
+        </div>
+        
+        <div class="control-group mt-4">
+          <label class="control-label">Perturbation Probability</label>
+          <input type="range" id="prob-slider" min="0" max="1" step="0.05" value="0.2">
+          <span id="prob-val" class="font-mono text-muted text-sm">0.2</span>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label">QAOA Depth (p)</label>
+          <input type="range" id="depth-slider" min="1" max="10" step="1" value="3">
+          <span id="depth-val" class="font-mono text-muted text-sm">3</span>
+        </div>
+
+        <div class="log-panel" id="process-log">
+          <div class="log-entry" style="color: var(--text-muted)">System initialized. Awaiting commands...</div>
+        </div>
+
+        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+          <button class="btn" id="btn-perturb">Random Perturbation</button>
+          <button class="btn" id="btn-repair">Run Quantum Repair</button>
+          <button class="btn" id="btn-reset">Reset Lattice</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="optimization" style="padding-top: 50px;">
+    <div class="glass-card math-showcase">
+      <div class="equation-display">
+        $$
+        \begin{aligned}
+        \text{maximize: } & \sum_i (\alpha s_i + \beta d_i) x_i + \sum_{i,j} \gamma w_{ij} x_i x_j - \lambda \sum_i c_i x_i \\
+        \text{Subject to: } & \quad x_i \in \{0,1\}
+        \end{aligned}
+        $$
+      </div>
+      <div class="variables-grid text-muted">
+        <div class="var-item"><span>\( x_i \)</span> → repair decision (binary)</div>
+        <div class="var-item"><span>\( s_i \)</span> → structural importance</div>
+        <div class="var-item"><span>\( d_i \)</span> → damage severity</div>
+        <div class="var-item"><span>\( c_i \)</span> → repair cost</div>
+        <div class="var-item"><span>\( w_{ij} \)</span> → coupling strength</div>
+        <div class="var-item"><span>\( \alpha, \beta, \gamma, \lambda \)</span> → weighting coefficients</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Algorithms -->
+  <section id="algorithms">
+    <h2><span class="accent-gradient">03.</span> Core Algorithms</h2>
+    <div class="algo-grid">
+      <div class="glass-card algo-card">
+        <h3>Hamiltonian Formulation</h3>
+        <p class="text-muted">Mapping the lattice repair problem to an Ising model Hamiltonian for quantum optimization.</p>
+        <div class="equation">
+          $$ H = \sum J_{ij} Z_i Z_j + \sum h_i Z_i $$
+        </div>
+      </div>
+      <div class="glass-card algo-card">
+        <h3>QAOA Ansatz</h3>
+        <p class="text-muted">The parameterized quantum circuit used to explore the solution space of the repair Hamiltonian.</p>
+        <div class="equation">
+          $$ |\gamma,\beta\rangle = \prod e^{-i \beta_k H_B} e^{-i \gamma_k H_P} |+\rangle^n $$
+        </div>
+      </div>
+      <div class="glass-card algo-card">
+        <h3>Stress Propagation</h3>
+        <p class="text-muted">Differential equation governing how mechanical stress cascades through intact cross-links.</p>
+        <div class="equation">
+          $$ \frac{dS_i}{dt} = -\gamma S_i + \alpha \sum A_{ij}(S_j - S_i) $$
+        </div>
+      </div>
+      <div class="glass-card algo-card">
+        <h3>Coherence Metric</h3>
+        <p class="text-muted">A macroscopic measure of tissue health derived from microscopic lattice integrity.</p>
+        <div class="equation">
+          $$ C = \frac{1}{N} \sum (1 - D_i) \cdot \frac{\deg(i)}{\text{max\_deg}} $$
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analytics Dashboard -->
+  <section id="analytics">
+    <h2><span class="accent-gradient">04.</span> Real-time Telemetry</h2>
+    
+    <div class="metrics-grid">
+      <div class="glass-card">
+        <label class="control-label">Total Nodes</label>
+        <div class="metric-value" id="metric-nodes">120</div>
+      </div>
+      <div class="glass-card">
+        <label class="control-label">Intact Edges</label>
+        <div class="metric-value accent-gradient" id="metric-edges">248</div>
+      </div>
+      <div class="glass-card">
+        <label class="control-label">Damage Ratio</label>
+        <div class="metric-value" id="metric-damage" style="color: var(--health-damage)">0.0%</div>
+      </div>
+      <div class="glass-card">
+        <label class="control-label">Coherence Score</label>
+        <div class="metric-value" id="metric-coherence" style="color: var(--health-good)">1.00</div>
+      </div>
+    </div>
+
+    <div class="charts-grid">
+      <div class="glass-card chart-container">
+        <canvas id="coherenceChart"></canvas>
+      </div>
+      <div class="glass-card chart-container">
+        <canvas id="distributionChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Links -->
+  <section id="links">
+    <h2><span class="accent-gradient">05.</span> Resources & Links</h2>
+    <div class="links-grid">
+      <a href="https://github.com/Nickolas-Adrian-Papamichail" target="_blank" class="glass-card link-card">
+        <span class="font-mono">GitHub Profile</span>
+        <span>→</span>
+      </a>
+      <a href="https://linkedin.com/in/nickolas-adrian-papamichail" target="_blank" class="glass-card link-card">
+        <span class="font-mono">LinkedIn</span>
+        <span>→</span>
+      </a>
+      <a href="#" class="glass-card link-card">
+        <span class="font-mono">Research Paper (PDF)</span>
+        <span>→</span>
+      </a>
+      <a href="#" class="glass-card link-card">
+        <span class="font-mono">Project Repository</span>
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 40px 5%; text-align: center; border-top: 1px solid var(--border-light); margin-top: 50px;">
+    <p class="text-muted font-mono text-sm">© 2026 Nickolas-Adrian Papamichail. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
