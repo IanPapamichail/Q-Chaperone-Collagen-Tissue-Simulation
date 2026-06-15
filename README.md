@@ -1,4 +1,4 @@
-# 🧬 Quantum-Inspired Collagen Lattice Simulation  
+# 🧬 Q-Chaperon  
 ### *Interactive Web Platform for Structural Optimization using QAOA Principles*
 
 ![status](https://img.shields.io/badge/status-active-success)
