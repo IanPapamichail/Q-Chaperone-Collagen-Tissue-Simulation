@@ -1,4 +1,4 @@
-# 🧬 Q-Chaperon  
+# Q-Chaperon  
 ### *Interactive Web Platform for Structural Optimization using QAOA Principles*
 
 ![status](https://img.shields.io/badge/status-active-success)
@@ -12,7 +12,7 @@
 
 ---
 
-## ✨ Overview
+## Overview
 
 This project is an **interactive simulation website** that explores how **collagen structures can be modeled, perturbed, and repaired** using a **quantum-inspired optimization framework**.
 
@@ -47,9 +47,9 @@ and explored using **QAOA-inspired logic**.
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 🔷 Interactive Lattice Simulation
+###  Interactive Lattice Simulation
 - Dynamic network using **D3.js**
 - Real-time node states:
   - intact  
@@ -59,41 +59,41 @@ and explored using **QAOA-inspired logic**.
 
 ---
 
-### 🔷 Perturbation Engine
+###  Perturbation Engine
 - Simulates **damage propagation**
 - Local disturbances spread across the network
 - Models biological stress behavior
 
 ---
 
-### 🔷 Quantum-Inspired Repair (QAOA Logic)
+###  Quantum-Inspired Repair (QAOA Logic)
 - Parameterized repair process  
 - Energy-based optimization concept  
 - Inspired by quantum circuit behavior  
 
 ---
 
-### 🔷 Real-Time Metrics Dashboard
+###  Real-Time Metrics Dashboard
 - Structural coherence score  
 - Damage ratio  
 - Edge integrity  
 
 ---
 
-### 🔷 3D Visual System
+###  3D Visual System
 - Built with **Three.js**
 - Collagen-inspired particle field
 - Interactive camera movement
 
 ---
 
-### 🔷 Mathematical Layer
+###  Mathematical Layer
 - Equations rendered via **KaTeX**
 - Clean, publication-style formatting
 
 ---
 
-## 🧪 Simulation Logic
+##  Simulation Logic
 
 ### Damage Model
 - Probabilistic propagation  
@@ -118,7 +118,7 @@ Captures:
 
 ---
 
-## 🧱 Tech Stack
+##  Tech Stack
 
 - HTML5  
 - CSS3  
@@ -130,7 +130,7 @@ Captures:
 
 ---
 
-## 🖥️ Usage
+##  Usage
 
 Run locally:
 
